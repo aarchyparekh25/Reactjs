@@ -1,0 +1,24 @@
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+.app-content {
+  overflow-y: auto;
+  min-height: 100%;
+}
+.App {
+  overflow-y: hidden;
+}
+.App.overflow-y-hidden {
+  overflow-y: hidden;
+}
