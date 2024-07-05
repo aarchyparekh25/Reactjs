@@ -1,20 +1,24 @@
 import React from 'react'
-import tick from '../assets/tick.png'
-import no_tick from '../assets/not_tick.png'
-import delete_icon from '../assets/delete.png'
+import { MdDelete } from "react-icons/md";
+import { MdCheckBox } from "react-icons/md";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
-const TodoItems = ({text ,id,isComplete,deleteTodo,toggle   }) => {
+const TodoItems = ({text ,id,isComplete,deleteTodo,toggle }) => {
   return (
-    <div className='flex items-center my-3 gap-2 '>
+    <div className='flex items-center justify-center my-3 rounded-lg gap-2 shadow-[-3px-3px-3px-#9e9e9e] transition-transform hover:scale-105 p-3 bg-[#ffffea] '>
         
         <div onClick={()=>{toggle(id)}} className='flex flex-1 items-center cursor-pointer'>
-            <img  src={isComplete ? tick : no_tick} alt=""  className='w-7'/>
-                <p className={`text-slate-700 ml-4 text-[17px] decoration-slate-700 ${isComplete ? "line-through" : ""}`}>{text}</p>
+        {isComplete ? (
+        <MdCheckBox className='w-7 h-7' style={{color:'#174158'}} />
+      ) : (
+        <MdCheckBoxOutlineBlank className='w-7 h-7 ' style={{color:'#174158'}}/>
+      )}
+                <p className={` text-blue-800  font-medium text-md ml-4 text-[17px] decoration-blue-800 ${isComplete ? "line-through" : ""}`}>{text}</p>
 
         </div>
 
         <div>
-            <img onClick={()=>{deleteTodo(id)}} src={delete_icon} alt="" className='w-3.5 cursor-pointer'/>
+        <MdDelete onClick={()=>{deleteTodo(id)}} size={25} cursor-pointer style={{color:'#174158'}} />
         </div>
 
     </div>
